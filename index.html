@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#06111c">
+<title>Building Hisaab — Premium</title>
+<style>
+:root{--bg:#06111c;--panel:#0a1827;--panel2:#0e2032;--line:#1c354b;--text:#eff8ff;--muted:#8ea6ba;--a:#47e0ae;--a2:#27b887;--blue:#55bfff;--red:#ff7080;--gold:#ffd166;--shadow:0 18px 55px #0006}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 15% 0,#12334a 0,#06111c 35%,#040b12 100%);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+button,input{font:inherit}button{cursor:pointer}.app{min-height:100vh;display:flex}.side{width:272px;background:#07131fdd;backdrop-filter:blur(18px);border-right:1px solid #1d3448;padding:20px;display:flex;flex-direction:column;position:sticky;top:0;height:100vh}.brand{display:flex;align-items:center;gap:11px;font-size:21px;font-weight:900;letter-spacing:.2px}.logo{width:39px;height:39px;border-radius:13px;background:linear-gradient(145deg,#62f2c0,#1e9e79);color:#03150f;display:grid;place-items:center;box-shadow:0 10px 30px #35d8a044}.brand small{display:block;color:#7190a6;font-size:9px;font-weight:600;margin-top:2px}.nav{margin-top:32px;display:grid;gap:7px}.nav button{border:1px solid transparent;background:transparent;color:#9eb4c7;text-align:left;padding:13px 14px;border-radius:13px;transition:.2s}.nav button:hover{background:#10283b;color:#fff;transform:translateX(2px)}.nav button.active{background:linear-gradient(100deg,#123a3a,#10273b);border-color:#28575a;color:#8ff1cf;box-shadow:inset 3px 0 #47e0ae}.sidefoot{margin-top:auto;color:#668095;font-size:10px;line-height:1.65}.main{flex:1;min-width:0}.top{height:74px;position:sticky;top:0;z-index:4;background:#06111ccc;backdrop-filter:blur(18px);border-bottom:1px solid #1a3043;display:flex;align-items:center;justify-content:space-between;padding:0 28px}.topLeft{display:flex;align-items:center;gap:12px}.menu{display:none;background:#10243a;color:#fff;border:1px solid #29455c;border-radius:10px;padding:8px 10px}.online{display:flex;align-items:center;gap:7px;color:#83dcbf;font-size:11px}.dot{width:7px;height:7px;background:#47e0ae;border-radius:50%;box-shadow:0 0 13px #47e0ae}.container{max-width:1160px;margin:auto;padding:30px 24px 70px}.view{display:none}.view.active{display:block;animation:fade .35s ease}@keyframes fade{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+.hero{padding:10px 0 25px;display:flex;justify-content:space-between;gap:25px;align-items:end}.eyebrow{color:#63e8bd;text-transform:uppercase;letter-spacing:2px;font-size:10px;font-weight:800}.hero h1{font-size:clamp(30px,4vw,46px);line-height:1.05;margin:8px 0}.hero p{color:var(--muted);max-width:670px;margin:0;line-height:1.6}.heroActions{display:flex;gap:8px}.btn{border:0;border-radius:12px;padding:11px 15px;font-weight:750;transition:.2s}.btn:hover{transform:translateY(-2px)}.primary{background:var(--a);color:#04150f;box-shadow:0 10px 30px #32d8a033}.secondary{background:#10263a;color:#dcebf5;border:1px solid #29455d}.danger{background:#351a25;color:#ff9ba5}.card{background:linear-gradient(145deg,#0b1b2b,#081522);border:1px solid var(--line);border-radius:19px;padding:20px;box-shadow:0 10px 35px #0002;margin-bottom:16px}.card h2,.card h3{margin-top:0}.muted{color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:17px}.stat{padding:17px;border:1px solid #1d394e;border-radius:16px;background:#091827;position:relative;overflow:hidden}.stat:after{content:"";position:absolute;width:70px;height:70px;border-radius:50%;background:#47e0ae12;right:-22px;top:-24px}.stat span{color:#7f98ac;font-size:11px}.stat b{display:block;font-size:23px;margin-top:6px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}.field label{display:block;color:#8da6ba;font-size:11px;margin-bottom:6px}.field input{width:100%;background:#07131f;color:#fff;border:1px solid #28445b;border-radius:11px;padding:11px;outline:none}.field input:focus{border-color:#47e0ae;box-shadow:0 0 0 3px #47e0ae12}.people{display:grid;gap:10px}.person{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end;padding:12px;background:#091725;border:1px solid #1c3448;border-radius:14px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.entry{border:1px solid #1e3a50;background:linear-gradient(145deg,#0a1b2b,#081521);border-radius:18px;padding:17px;margin-bottom:12px}.entryHead{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}.entryHead h3{margin:0}.rate{font-size:10px;color:#7f98ac;padding:6px 9px;border-radius:99px;background:#0f2b2a;border:1px solid #24534a}.billCards{display:grid;gap:12px}.generated{border:1px solid #244358;background:#0a1928;border-radius:17px;padding:16px}.generatedHead{display:flex;justify-content:space-between;gap:10px}.generated h3{margin:0}.bigMoney{font-size:26px;font-weight:900;color:#83f0ca}.tag{display:inline-block;margin-top:6px;padding:5px 8px;border-radius:99px;background:#12342d;color:#7ce9c4;font-size:10px}.historyItem{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:15px;border:1px solid #1c3448;background:#091725;border-radius:14px}.empty{text-align:center;padding:35px;color:#71899c}.modal{position:fixed;inset:0;background:#000b;backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:16px;z-index:20}.modal.show{display:flex}.report{width:min(540px,100%);max-height:92vh;overflow:auto;border-radius:24px;background:#071521;box-shadow:0 35px 100px #000;animation:reportIn .55s cubic-bezier(.2,.9,.2,1)}@keyframes reportIn{from{opacity:0;transform:translateY(55px) scale(.94)}to{opacity:1;transform:none}}
+.reportTop{padding:25px;background:linear-gradient(135deg,#0e3b3b,#0b2435 60%,#102d45);position:relative;overflow:hidden}.reportTop:before{content:"";position:absolute;width:180px;height:180px;border:1px solid #64f1c033;border-radius:50%;right:-55px;top:-70px;box-shadow:0 0 0 30px #64f1c00b,0 0 0 60px #64f1c006}.reportTop h2{margin:0;font-size:22px;position:relative}.reportTop p{margin:6px 0 0;color:#9dc0cf;font-size:11px;position:relative}.close{position:absolute;right:16px;top:14px;border:1px solid #ffffff25;background:#ffffff10;color:#fff;width:34px;height:34px;border-radius:10px;z-index:2}.reportBody{padding:20px}.personHero{display:flex;align-items:center;gap:12px;margin-bottom:17px}.personAvatar{width:48px;height:48px;border-radius:15px;background:linear-gradient(145deg,#4de0ad,#2385a7);color:#04151a;display:grid;place-items:center;font-weight:900;font-size:18px}.personHero h3{margin:0}.personHero span{font-size:11px;color:#7f98ac}.meterGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}.meterBox{background:#0a1b2a;border:1px solid #1d374d;border-radius:14px;padding:13px}.meterBox span{display:block;color:#718ba0;font-size:10px}.meterBox b{font-size:18px;display:block;margin-top:4px}.units{margin:14px 0;padding:15px;border-radius:15px;background:linear-gradient(100deg,#0b312d,#0c2231);border:1px solid #23564b;display:flex;justify-content:space-between;align-items:center}.units span{color:#87adba;font-size:11px}.units strong{font-size:25px;color:#77edc3}.moneyRows{border-top:1px solid #1c3447}.moneyRow{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #162d40;color:#a9bac8;font-size:12px}.moneyRow b{color:#fff}.total{margin-top:15px;border-radius:17px;padding:17px;background:linear-gradient(135deg,#123b34,#0e2938);border:1px solid #347362;display:flex;justify-content:space-between;align-items:center}.total span{color:#8db5ae;font-size:11px}.total b{font-size:30px;color:#8df1cb}.calc{font-size:10px;color:#668597;margin-top:13px}.reportActions{padding:0 20px 20px;display:flex;gap:8px}.reportActions .btn{flex:1}.toast{position:fixed;bottom:23px;left:50%;transform:translateX(-50%);background:#132a3c;border:1px solid #31536b;color:#fff;padding:11px 15px;border-radius:12px;display:none;z-index:30;box-shadow:0 15px 40px #0008}.modalBill{background:#fff;color:#101820;padding:25px;border-radius:8px}.modalBill h2{text-align:center}.modalBill .r{display:flex;justify-content:space-between;border-bottom:1px solid #ddd;padding:7px}.printOnly{display:none}
+@media(max-width:850px){.stats{grid-template-columns:1fr 1fr}.hero{align-items:start;flex-direction:column}.heroActions{width:100%}}
+@media(max-width:700px){.side{display:none}.menu{display:block}.top{padding:0 15px}.container{padding:20px 14px 55px}.grid{grid-template-columns:1fr}.person{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}}
+@media(max-width:430px){.reportBody{padding:15px}.reportTop{padding:21px}.total b{font-size:25px}}
+@media print{body{background:white}.app,.modal{display:none!important}.printOnly{display:block}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="side">
+<div class="brand"><div class="logo">₹</div><div>Building Hisaab<small>PRIVATE ELECTRICITY MANAGER</small></div></div>
+<div class="nav">
+<button class="active" data-view="dashboard">◈ Dashboard</button>
+<button data-view="people">♙ People</button>
+<button data-view="newbill">＋ New Bill</button>
+<button data-view="history">◴ Bill History</button>
+<button data-view="settings">⚙ Settings</button>
+</div>
+<div class="sidefoot">Local-first • Private by design<br><br>Rate: ₹3.50 / unit<br>Data is stored on this device.</div>
+</aside>
+<main class="main">
+<header class="top"><div class="topLeft"><button class="menu" onclick="alert('On mobile, use the New Bill button and the sections below the top bar.')">☰</button><strong>Building Hisaab</strong></div><div class="online"><i class="dot"></i>Private &amp; Local</div></header>
+<div class="container">
+
+<section id="dashboard" class="view active">
+<div class="hero"><div><div class="eyebrow">Electricity management</div><h1>Your building. Your hisaab.</h1><p>Calculate meter usage, carry previous dues forward, generate beautiful individual bills and share them — all from one private app.</p></div><div class="heroActions"><button class="btn primary" onclick="newBill()">＋ Create Bill</button></div></div>
+<div class="stats">
+<div class="stat"><span>Saved People</span><b id="sPeople">0 / 5</b></div><div class="stat"><span>Latest Period</span><b id="sPeriod">—</b></div><div class="stat"><span>Latest Total</span><b id="sTotal">₹0</b></div><div class="stat"><span>Rate</span><b id="sRate">₹3.50</b></div>
+</div>
+<div class="card"><h2>Quick actions</h2><div class="actions"><button class="btn secondary" onclick="show('people')">Set up names</button><button class="btn secondary" onclick="newBill()">Enter readings</button><button class="btn secondary" onclick="show('history')">View history</button></div></div>
+<div class="card"><h2>Latest activity</h2><div id="recent"></div></div>
+</section>
+
+<section id="people" class="view">
+<div class="hero"><div><div class="eyebrow">One-time setup</div><h1>Your five people</h1><p>Save their names once. Every future bill will reuse them automatically.</p></div></div>
+<div class="card"><div id="peopleList" class="people"></div><div class="actions"><button class="btn primary" onclick="savePeople()">Save Names</button></div></div>
+</section>
+
+<section id="newbill" class="view">
+<div class="hero"><div><div class="eyebrow">New calculation</div><h1>Create a bill</h1><p>Choose the exact billing period, enter the five meter readings and let the app do the hisaab.</p></div></div>
+<div class="card"><div class="grid"><div class="field"><label>Bill Period — From</label><input id="from" type="date"></div><div class="field"><label>Bill Period — To</label><input id="to" type="date"></div></div></div>
+<div id="entries"></div>
+<div class="actions"><button class="btn primary" onclick="generate()">Calculate &amp; Generate Bills</button><button class="btn secondary" onclick="clearForm()">Clear</button></div>
+<div id="generated"></div>
+</section>
+
+<section id="history" class="view">
+<div class="hero"><div><div class="eyebrow">Saved locally</div><h1>Bill history</h1><p>Every generated bill remains available on this device until you delete it.</p></div></div>
+<div id="historyList"></div>
+</section>
+
+<section id="settings" class="view">
+<div class="hero"><div><div class="eyebrow">Control centre</div><h1>Settings</h1><p>Keep the billing rules exactly how you want them.</p></div></div>
+<div class="card"><h2>Electricity rate</h2><p class="muted">Current rate used for automatic calculations.</p><div class="field"><label>₹ per unit</label><input id="rate" type="number" min="0" step="0.01"></div><div class="actions"><button class="btn primary" onclick="saveRate()">Save Rate</button></div></div>
+<div class="card"><h2>Data management</h2><p class="muted">This app does not send your billing records to a server.</p><button class="btn danger" onclick="resetAll()">Delete all local data</button></div>
+</section>
+</div></main></div>
+
+<div class="modal" id="modal"><div class="report" id="report"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const KEY="buildingHisaabPremiumV2";
+let data=JSON.parse(localStorage.getItem(KEY)||"null")||{people:["","","","",""],rate:3.5,bills:[]};
+function save(){localStorage.setItem(KEY,JSON.stringify(data))}
+function money(n){return "₹"+Number(n||0).toFixed(2)}
+function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function toast(t){let x=document.getElementById("toast");x.textContent=t;x.style.display="block";setTimeout(()=>x.style.display="none",2300)}
+function show(id){document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));document.getElementById(id).classList.add("active");document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.view===id));if(id==="dashboard")renderDashboard();if(id==="people")renderPeople();if(id==="newbill")renderNew();if(id==="history")renderHistory();if(id==="settings")document.getElementById("rate").value=data.rate}
+document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>show(b.dataset.view));
+function newBill(){show("newbill")}
+function renderPeople(){document.getElementById("peopleList").innerHTML=data.people.map((n,i)=>`<div class="person"><div class="field"><label>Person ${i+1}</label><input id="p${i}" value="${esc(n)}" placeholder="Enter name"></div><span class="muted">Meter ${i+1}</span></div>`).join("")}
+function savePeople(){data.people=[0,1,2,3,4].map(i=>document.getElementById("p"+i).value.trim());save();toast("Five names saved");show("dashboard")}
+function lastDue(name){for(const b of data.bills){const p=b.people.find(x=>x.name===name);if(p)return Math.max(0,p.total-p.paid)}return 0}
+function renderNew(){if(data.people.filter(Boolean).length<5){document.getElementById("entries").innerHTML=`<div class="card"><h3>Complete the one-time setup</h3><p class="muted">Save all five names first. Then this page will be ready for readings.</p><button class="btn primary" onclick="show('people')">Set up names</button></div>`;return}
+document.getElementById("entries").innerHTML=data.people.map((n,i)=>`<div class="entry"><div class="entryHead"><h3>${esc(n)}</h3><span class="rate">₹${Number(data.rate).toFixed(2)} / unit</span></div><div class="grid"><div class="field"><label>Previous Reading</label><input type="number" id="prev${i}" min="0" inputmode="numeric"></div><div class="field"><label>Current Reading</label><input type="number" id="curr${i}" min="0" inputmode="numeric"></div><div class="field"><label>Units Consumed — automatic</label><input id="units${i}" readonly></div><div class="field"><label>Current Payable Amount — automatic</label><input id="current${i}" readonly></div><div class="field"><label>Paid</label><input type="number" id="paid${i}" min="0" step=".01" value="0" inputmode="decimal"></div><div class="field"><label>Previous Due — automatic</label><input id="due${i}" value="${lastDue(n).toFixed(2)}" readonly></div><div class="field"><label>Total Payable — automatic</label><input id="total${i}" readonly></div></div></div>`).join("")}
+function generate(){let from=document.getElementById("from").value,to=document.getElementById("to").value;if(!from||!to)return toast("Enter both bill period dates");if(from>to)return toast("Check the bill period");
+let people=[];for(let i=0;i<5;i++){let name=data.people[i],prev=Number(document.getElementById("prev"+i).value),curr=Number(document.getElementById("curr"+i).value),paid=Number(document.getElementById("paid"+i).value)||0,due=lastDue(name);if(!Number.isFinite(prev)||!Number.isFinite(curr)||curr<prev)return toast("Check meter readings for "+name);let units=curr-prev,current=units*data.rate,total=Math.max(0,current+due-paid);document.getElementById("units"+i).value=units;document.getElementById("current"+i).value=current.toFixed(2);document.getElementById("due"+i).value=due.toFixed(2);document.getElementById("total"+i).value=total.toFixed(2);people.push({name,prev,curr,units,current,paid,due,total})}
+let bill={id:Date.now(),from,to,rate:Number(data.rate),people};data.bills.unshift(bill);data.bills=data.bills.slice(0,100);save();renderGenerated(bill);renderDashboard();renderHistory();toast("Bills generated successfully")}
+function renderGenerated(b){document.getElementById("generated").innerHTML=`<div class="card"><div class="eyebrow">Generated successfully</div><h2>Your five bills are ready</h2><p class="muted">${b.from} → ${b.to}</p><div class="billCards">${b.people.map((p,i)=>`<div class="generated"><div class="generatedHead"><div><h3>${esc(p.name)}</h3><span class="tag">${p.units} units</span></div><strong class="bigMoney">${money(p.total)}</strong></div><div class="muted" style="margin-top:9px;font-size:11px">Current ${money(p.current)} · Paid ${money(p.paid)} · Previous due ${money(p.due)}</div><div class="actions"><button class="btn primary" onclick="openReport(${b.id},${i})">Open animated bill</button><button class="btn secondary" onclick="shareBillImage(${b.id},${i})">🖼 Share Image</button></div></div>`).join("")}</div></div>`}
+function openReport(id,i){let b=data.bills.find(x=>x.id===id),p=b.people[i],initial=(p.name.trim()[0]||"P").toUpperCase();document.getElementById("report").innerHTML=`<div class="reportTop"><button class="close" onclick="closeReport()">×</button><div class="eyebrow">Electricity statement</div><h2>BUILDING HISAAB</h2><p>Bill period • ${esc(b.from)} → ${esc(b.to)}</p></div><div class="reportBody"><div class="personHero"><div class="personAvatar">${initial}</div><div><h3>${esc(p.name)}</h3><span>Individual electricity statement</span></div></div><div class="meterGrid"><div class="meterBox"><span>Previous reading</span><b>${p.prev}</b></div><div class="meterBox"><span>Current reading</span><b>${p.curr}</b></div></div><div class="units"><span>Electricity consumed</span><strong><span id="unitCounter">0</span> units</strong></div><div class="moneyRows"><div class="moneyRow"><span>Current payable amount</span><b id="curCounter">₹0.00</b></div><div class="moneyRow"><span>Paid</span><b>${money(p.paid)}</b></div><div class="moneyRow"><span>Previous due</span><b>${money(p.due)}</b></div></div><div class="total"><span>TOTAL PAYABLE</span><b id="totalCounter">₹0.00</b></div><div class="calc">Calculation: ${p.units} units × ₹${b.rate.toFixed(2)} = ${money(p.current)} • Total = current payable + previous due − paid</div></div><div class="reportActions"><button class="btn primary" onclick="shareBillImage(${id},${i})">🖼 Share Bill Image</button><button class="btn secondary" onclick="downloadBillImage(${id},${i})">⬇ Save Image</button><button class="btn secondary" onclick="printBill(${id},${i})">🖨 Print</button></div>`;document.getElementById("modal").classList.add("show");animateNumber("unitCounter",p.units,650,v=>Math.round(v));animateNumber("curCounter",p.current,850,v=>money(v));animateNumber("totalCounter",p.total,1050,v=>money(v))}
+function animateNumber(id,end,duration,format){let el=document.getElementById(id),start=performance.now();function step(now){let t=Math.min(1,(now-start)/duration),e=1-Math.pow(1-t,3);el.textContent=format(end*e);if(t<1)requestAnimationFrame(step)}requestAnimationFrame(step)}
+function closeReport(){document.getElementById("modal").classList.remove("show")}
+
+function makeBillCanvas(b,p){
+  const c=document.createElement("canvas");
+  c.width=1080;c.height=1350;
+  const x=c.getContext("2d");
+  const bg=x.createLinearGradient(0,0,1080,1350);bg.addColorStop(0,"#071521");bg.addColorStop(1,"#0b2435");
+  x.fillStyle=bg;x.fillRect(0,0,c.width,c.height);
+  x.fillStyle="#47e0ae";x.fillRect(0,0,1080,12);
+  x.fillStyle="#eef8ff";x.font="800 44px Arial";x.fillText("BUILDING HISAAB",70,100);
+  x.fillStyle="#8faabd";x.font="22px Arial";x.fillText("ELECTRICITY BILL",70,137);
+  x.fillStyle="#47e0ae";x.font="bold 22px Arial";x.fillText("BILL PERIOD",70,205);
+  x.fillStyle="#eef8ff";x.font="bold 27px Arial";x.fillText(padDate(b.from)+"  →  "+padDate(b.to),70,242);
+  x.fillStyle="#0d2030";roundRect(x,60,285,960,145,22);x.fill();
+  x.fillStyle="#47e0ae";x.beginPath();x.arc(125,357,42,0,Math.PI*2);x.fill();
+  x.fillStyle="#04151a";x.font="bold 30px Arial";x.textAlign="center";x.fillText((p.name[0]||"P").toUpperCase(),125,368);x.textAlign="left";
+  x.fillStyle="#eef8ff";x.font="bold 30px Arial";x.fillText(p.name,195,348);
+  x.fillStyle="#8faabd";x.font="19px Arial";x.fillText("Individual electricity statement",195,380);
+  x.fillStyle="#10283a";roundRect(x,60,465,460,150,20);x.fill();roundRect(x,560,465,460,150,20);x.fill();
+  x.fillStyle="#829db0";x.font="18px Arial";x.fillText("PREVIOUS READING",88,505);x.fillText("CURRENT READING",588,505);
+  x.fillStyle="#fff";x.font="bold 34px Arial";x.fillText(String(p.prev),88,557);x.fillText(String(p.curr),588,557);
+  x.fillStyle="#0c332e";roundRect(x,60,650,960,135,20);x.fill();
+  x.fillStyle="#83f0ca";x.font="bold 25px Arial";x.fillText("ELECTRICITY CONSUMED",88,705);
+  x.textAlign="right";x.font="bold 40px Arial";x.fillText(p.units+" units",990,712);x.textAlign="left";
+  const rows=[["Current Payable Amount",money(p.current)],["Paid",money(p.paid)],["Previous Due",money(p.due)]];
+  let y=835;x.font="22px Arial";
+  for(const [label,val] of rows){x.strokeStyle="#234054";x.beginPath();x.moveTo(70,y+22);x.lineTo(1010,y+22);x.stroke();x.fillStyle="#a9bac8";x.fillText(label,80,y);x.fillStyle="#fff";x.textAlign="right";x.font="bold 22px Arial";x.fillText(val,990,y);x.textAlign="left";x.font="22px Arial";y+=70}
+  x.fillStyle="#123b34";roundRect(x,60,1060,960,145,22);x.fill();
+  x.fillStyle="#8db5ae";x.font="20px Arial";x.fillText("TOTAL PAYABLE",88,1118);
+  x.fillStyle="#8df1cb";x.textAlign="right";x.font="bold 46px Arial";x.fillText(money(p.total),990,1130);x.textAlign="left";
+  x.fillStyle="#668597";x.font="18px Arial";x.fillText("Calculation: "+p.units+" units × ₹"+Number(b.rate).toFixed(2)+" = "+money(p.current),70,1260);
+  x.fillText("Generated by Building Hisaab • Private local billing",70,1300);
+  return c;
+}
+function roundRect(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath()}
+function padDate(s){if(!s)return "";const [y,m,d]=s.split("-");return d+"/"+m+"/"+y}
+function imageFileName(p,b){return "Building-Hisaab-"+p.name.replace(/[^a-z0-9]+/gi,"-")+"-"+b.from+".png"}
+function getBillImage(b,p){return new Promise(resolve=>makeBillCanvas(b,p).toBlob(resolve,"image/png",1))}
+async function shareBillImage(id,i){
+  const b=data.bills.find(x=>x.id===id),p=b.people[i],blob=await getBillImage(b,p);
+  const file=new File([blob],imageFileName(p,b),{type:"image/png"});
+  if(navigator.canShare && navigator.canShare({files:[file]})){
+    try{await navigator.share({title:"Building Hisaab — "+p.name,files:[file]});return}catch(e){}
+  }
+  const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download=file.name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  toast("Bill image saved — share it on WhatsApp");
+}
+async function downloadBillImage(id,i){
+  const b=data.bills.find(x=>x.id===id),p=b.people[i],blob=await getBillImage(b,p);
+  const url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=imageFileName(p,b);a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);toast("Bill image saved");
+}
+
+function billText(b,p){return `BUILDING HISAAB\nBill Period: ${b.from} to ${b.to}\n\nName: ${p.name}\nPrevious Reading: ${p.prev}\nCurrent Reading: ${p.curr}\nUnits Consumed: ${p.units}\n\nCurrent Payable Amount: ${money(p.current)}\nPaid: ${money(p.paid)}\nPrevious Due: ${money(p.due)}\nTOTAL PAYABLE: ${money(p.total)}\n\nRate: ₹${b.rate.toFixed(2)} per unit`}
+async function shareBill(id,i){let b=data.bills.find(x=>x.id===id),p=b.people[i],text=billText(b,p);if(navigator.share){try{await navigator.share({title:"Building Hisaab — "+p.name,text})}catch(e){}}else{try{await navigator.clipboard.writeText(text);toast("Bill copied to clipboard")}catch(e){window.open("https://wa.me/?text="+encodeURIComponent(text),"_blank")}}}
+function printBill(id,i){let b=data.bills.find(x=>x.id===id),p=b.people[i];let w=window.open("","_blank");w.document.write(`<html><head><title>Building Hisaab — ${esc(p.name)}</title><style>body{font-family:Arial;padding:30px;color:#111}h1{text-align:center}.r{display:flex;justify-content:space-between;border-bottom:1px solid #ddd;padding:9px 0}.t{font-size:22px;font-weight:bold}</style></head><body><h1>BUILDING HISAAB</h1><p style="text-align:center">Bill Period: ${esc(b.from)} → ${esc(b.to)}</p><div class="r"><span>Name</span><b>${esc(p.name)}</b></div><div class="r"><span>Previous Reading</span><b>${p.prev}</b></div><div class="r"><span>Current Reading</span><b>${p.curr}</b></div><div class="r"><span>Units Consumed</span><b>${p.units}</b></div><div class="r"><span>Current Payable Amount</span><b>${money(p.current)}</b></div><div class="r"><span>Paid</span><b>${money(p.paid)}</b></div><div class="r"><span>Previous Due</span><b>${money(p.due)}</b></div><div class="r t"><span>Total Payable</span><b>${money(p.total)}</b></div><p>Rate: ₹${b.rate.toFixed(2)} per unit</p><script>window.print()<\/script></body></html>`);w.document.close()}
+function renderHistory(){let el=document.getElementById("historyList");if(!data.bills.length){el.innerHTML='<div class="card empty">No bills generated yet.</div>';return}el.innerHTML=data.bills.map(b=>`<div class="historyItem"><div><b>${esc(b.from)} → ${esc(b.to)}</b><div class="muted" style="font-size:11px;margin-top:5px">${b.people.length} individual bills</div></div><div class="actions" style="margin:0"><button class="btn secondary" onclick="openReport(${b.id},0)">Open</button><button class="btn danger" onclick="deleteBill(${b.id})">Delete</button></div></div>`).join("")}
+function deleteBill(id){if(!confirm("Delete this bill?"))return;data.bills=data.bills.filter(b=>b.id!==id);save();renderHistory();renderDashboard();toast("Bill deleted")}
+function renderDashboard(){document.getElementById("sPeople").textContent=data.people.filter(Boolean).length+" / 5";document.getElementById("sPeriod").textContent=data.bills[0]?data.bills[0].to:"—";document.getElementById("sTotal").textContent=money(data.bills[0]?data.bills[0].people.reduce((s,p)=>s+p.total,0):0);document.getElementById("sRate").textContent=money(data.rate);let el=document.getElementById("recent");el.innerHTML=data.bills.slice(0,3).map(b=>`<div class="historyItem" style="margin-bottom:9px"><div><b>${esc(b.from)} → ${esc(b.to)}</b><div class="muted" style="font-size:11px;margin-top:5px">${b.people.map(p=>esc(p.name)).join(" • ")}</div></div><button class="btn secondary" onclick="openReport(${b.id},0)">Open</button></div>`).join("")||'<div class="empty">Your generated bills will appear here.</div>'}
+function clearForm(){document.getElementById("from").value="";document.getElementById("to").value="";renderNew();document.getElementById("generated").innerHTML=""}
+function saveRate(){let r=Number(document.getElementById("rate").value);if(!Number.isFinite(r)||r<0)return toast("Enter a valid rate");data.rate=r;save();renderDashboard();renderNew();toast("Rate updated")}
+function resetAll(){if(!confirm("Delete all names, bills and settings from this device?"))return;localStorage.removeItem(KEY);location.reload()}
+document.getElementById("modal").addEventListener("click",e=>{if(e.target.id==="modal")closeReport()});
+renderPeople();renderNew();renderHistory();renderDashboard();
+</script>
+</body>
+</html>
