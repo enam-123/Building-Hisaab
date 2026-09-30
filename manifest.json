@@ -1,0 +1,25 @@
+{
+  "name": "Building Hisaab",
+  "short_name": "Hisaab",
+  "description": "Private personal electricity bill manager",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#06111c",
+  "theme_color": "#06111c",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
